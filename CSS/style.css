@@ -71,7 +71,7 @@
    padding: 4.8rem 0 9.6rem 0;
 }
 .hero {
-   /* max-width: 120rem;pricing */
+   /* max-width: 120rem; */
    margin-inline: auto;
    padding: 0 3.2rem;
    display: grid;
@@ -311,13 +311,18 @@
 
    gap: 1.6rem;
    padding: 1.6rem;
-   height: 100rem;
+   /* height: 100rem; */
 }
-.gallery-item img {
-   display: block;
-   background-size: cover;
-   width: 100%;
+
+figure.gallery-item {
    height: 26.367rem;
+}
+figure.gallery-item img {
+   display: block;
+   width: 100%;
+   min-height: 100%;
+   object-fit: cover;
+   border-radius: 12px;
    transition: all 0.4s;
 }
 .gallery-item img:hover {
@@ -397,6 +402,19 @@
    margin-bottom: 9.6rem;
 }
 
+@media screen and (min-width: 600px) and (max-width: 900px) {
+   ul.features {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 5rem;
+   }
+}
+@media screen and (max-width: 600px) {
+   ul.features {
+      grid-template-columns: 1fr !important;
+      text-align: center;
+   }
+}
+
 .feature-title {
    font-size: 2.4rem;
    color: #333;
@@ -431,6 +449,16 @@
    background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
    overflow: hidden;
 }
+/* Tab portrait */
+@media screen and (max-width: 900px) {
+   .cta {
+      grid-template-columns: 1fr;
+   }
+   .cta > [role='img'] {
+      height: 35rem;
+   }
+}
+
 .cta-text-box {
    padding: 3.2rem 6.4rem 6.4rem 6.4rem;
    color: #45260a;
@@ -457,12 +485,19 @@
 }
 
 /* form part */
-.cta-form {
+form.cta-form {
    display: grid;
-   grid-template-columns: 1fr 1fr;
+   /* grid-template-columns: 1fr 1fr; */
+   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
    column-gap: 3.2rem;
    row-gap: 2.4rem;
 }
+@media screen and (max-width: 600px) {
+   form.cta-form {
+      /* grid-template-columns: 1fr; */
+   }
+}
+
 .cta-form label {
    display: block;
    font-size: 1.6rem;
@@ -489,6 +524,11 @@
    border: none;
    cursor: pointer;
    font-family: inherit;
+}
+@media screen and (max-width: 600px) {
+   .cta-form button {
+      margin-top: 3rem;
+   }
 }
 .cta *:focus {
    outline: none;
